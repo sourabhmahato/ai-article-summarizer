@@ -1,2 +1,4 @@
 # ai-article-summarizer
-a chrome extension for lazy buns who don't like reading long articles online to help summarize and, give brief and detailed response too
+A Chrome extension for lazy legends (we see you 👀) who'd rather not scroll through walls of text. This AI-powered tool reads the long stuff for you and serves up quick, clean summaries—whether you want the TL;DR or a more detailed breakdown.
+
+Why use it? Because your time is valuable, your attention span is limited, and this extension makes staying informed effortless. One click. Instant insights. No fluff.
