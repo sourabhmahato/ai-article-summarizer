@@ -13,10 +13,21 @@ document.getElementById("summarize").addEventListener("click", async () => {
     }
 
     chrome.tabs.query({ active: true, currentWindow: true }, ([tab]) => {
+      if (!tab || !tab.id) {
+        resultDiv.innerText = "No active tab found.";
+        return;
+      }
+
       chrome.tabs.sendMessage(
         tab.id,
         { type: "GET_ARTICLE_TEXT" },
         async (res) => {
+          if (chrome.runtime.lastError) {
+            resultDiv.innerText =
+              "Cannot summarize this page. Try on a regular webpage.";
+            return;
+          }
+
           if (!res || !res.text) {
             resultDiv.innerText =
               "Could not extract article text from this page.";

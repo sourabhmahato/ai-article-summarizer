@@ -3,9 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Extension Options</title>
+    <title>AI Summarizer — Settings</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        background: #f5f7fa;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        color: #333;
+      }
+
+      .card {
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        padding: 36px 32px 28px;
+        max-width: 440px;
+        width: 100%;
+      }
+
+      h1 {
+        font-size: 1.4rem;
+        margin-bottom: 6px;
+      }
+
+      .subtitle {
+        font-size: 0.85rem;
+        color: #777;
+        margin-bottom: 24px;
+      }
+
+      label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 6px;
+        font-size: 0.9rem;
+      }
+
+      input[type="password"],
+      input[type="text"] {
+        width: 100%;
+        padding: 10px 14px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 0.95rem;
+        transition: border-color 0.2s;
+      }
+
+      input:focus {
+        outline: none;
+        border-color: #4285f4;
+        box-shadow: 0 0 0 3px rgba(66,133,244,0.15);
+      }
+
+      .input-group {
+        position: relative;
+        margin-bottom: 20px;
+      }
+
+      .toggle-visibility {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1.1rem;
+        color: #888;
+        padding: 4px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 10px 24px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.2s, transform 0.1s;
+      }
+
+      .btn:active {
+        transform: scale(0.97);
+      }
+
+      .btn-primary {
+        background-color: #4285f4;
+        color: #fff;
+      }
+
+      .btn-primary:hover {
+        background-color: #3367d6;
+      }
+
+      .status {
+        margin-top: 14px;
+        padding: 10px 14px;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        display: none;
+      }
+
+      .status.success {
+        display: block;
+        background: #e6f4ea;
+        color: #1e7e34;
+      }
+
+      .status.error {
+        display: block;
+        background: #fce8e6;
+        color: #c5221f;
+      }
+
+      .help-text {
+        margin-top: 18px;
+        font-size: 0.8rem;
+        color: #999;
+        line-height: 1.5;
+      }
+
+      .help-text a {
+        color: #4285f4;
+        text-decoration: none;
+      }
+
+      .help-text a:hover {
+        text-decoration: underline;
+      }
+    </style>
 </head>
 <body>
-    Hello from options
+  <div class="card">
+    <h1>⚙️ Extension Settings</h1>
+    <p class="subtitle">Configure your Gemini API key to enable article summarization.</p>
+
+    <label for="api-key">Gemini API Key</label>
+    <div class="input-group">
+      <input type="password" id="api-key" placeholder="Enter your API key" autocomplete="off" />
+      <button class="toggle-visibility" id="toggle-vis" title="Show/hide key">👁️</button>
+    </div>
+
+    <button class="btn btn-primary" id="save-btn">Save Key</button>
+
+    <div id="status" class="status"></div>
+
+    <p class="help-text">
+      Get a free API key from
+      <a href="https://aistudio.google.com/apikey" target="_blank">Google AI Studio</a>.
+      Your key is stored locally and never sent anywhere except Google's API.
+    </p>
+  </div>
+
+  <script src="options.js"></script>
 </body>
 </html>
